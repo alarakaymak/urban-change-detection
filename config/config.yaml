@@ -1,0 +1,55 @@
+# Urban Change Detection Configuration
+# LEVIR-CD Dataset
+
+# Data Settings
+data:
+  root_dir: "data/LEVIR-CD"
+  train_dir: "train"
+  val_dir: "val"
+  test_dir: "test"
+  image_size: 256  # LEVIR-CD images are 1024x1024, we'll use patches
+  num_workers: 4
+
+# Model Settings
+model:
+  name: "siamese_unet"  # Options: unet_baseline, siamese_unet, changeformer
+  encoder: "resnet34"   # Encoder backbone
+  pretrained: true
+  in_channels: 3
+  num_classes: 2        # Binary change detection (change/no-change)
+
+# Training Settings
+training:
+  batch_size: 8
+  epochs: 100
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  scheduler: "cosine"   # Options: cosine, step, plateau
+  early_stopping_patience: 15
+
+# Loss Function
+loss:
+  name: "combined"      # Options: bce, dice, focal, combined
+  dice_weight: 0.5
+  bce_weight: 0.5
+
+# Evaluation Metrics
+metrics:
+  - "iou"
+  - "f1"
+  - "precision"
+  - "recall"
+  - "accuracy"
+
+# Logging
+logging:
+  save_dir: "checkpoints"
+  log_dir: "logs"
+  save_frequency: 5     # Save checkpoint every N epochs
+
+# Device
+device: "cuda"          # Options: cuda, cpu, mps (for Mac M1/M2)
+
+# Random Seed
+seed: 42
+
