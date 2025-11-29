@@ -119,6 +119,12 @@ results/
 *.pt
 *.ckpt
 
+# Personal model files - each team member works on their own
+# Uncomment your model to exclude it from git:
+src/models/unet_baseline.py      # Maggie's model
+src/models/siamese_unet.py       # Laura's model
+src/models/changeformer.py       # Alara's model
+
 # Large files
 *.zip
 *.tar
