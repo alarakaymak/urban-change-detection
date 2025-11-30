@@ -68,34 +68,43 @@ def print_manual_instructions():
 ║                    LEVIR-CD Dataset Download Instructions                     ║
 ╠══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                              ║
-║  The LEVIR-CD dataset requires manual download due to hosting restrictions.  ║
+║  DOWNLOAD LINKS (Google Drive):                                              ║
 ║                                                                              ║
-║  STEP 1: Go to the official website                                         ║
-║          https://justchenhao.github.io/LEVIR/                                ║
+║  Option 1 - All in one folder:                                               ║
+║  https://drive.google.com/drive/folders/1dLuzldMRmbBNKPpUkX8Z53hi6NHLrWim    ║
+║    • train.zip (1.6 GB)                                                      ║
+║    • val.zip (234.7 MB)                                                      ║
+║    • test.zip (473.3 MB)                                                     ║
 ║                                                                              ║
-║  STEP 2: Download the dataset (choose one):                                  ║
-║          • Google Drive link (recommended)                                   ║
-║          • Baidu Drive link                                                  ║
+║  Option 2 - Individual links:                                                ║
+║  https://drive.google.com/open?id=18GuoCuBn48oZKAlEo-LrNwABrFhVALU-          ║
+║  https://drive.google.com/open?id=1BqSt4ueO7XAyQ_84mUjswUSJt13ZBuzG          ║
+║  https://drive.google.com/open?id=1jj3qJD_grJlgIhUWO09zibRGJe0R4Tn0          ║
+║  https://drive.google.com/open?id=1QZOYP-N2Nr27aDG38zTVJMunfzmrseLv          ║
+║  https://drive.google.com/open?id=1C2B5_wiZVUt-PWHn14H9lSKF5sA6jowR          ║
 ║                                                                              ║
-║  STEP 3: Extract to: data/LEVIR-CD/                                          ║
+║  STEPS:                                                                      ║
+║  1. Download train.zip, val.zip, test.zip from links above                   ║
+║  2. Extract each zip file                                                    ║
+║  3. Organize into this structure:                                            ║
 ║                                                                              ║
-║  STEP 4: Organize into this structure:                                       ║
-║          data/LEVIR-CD/                                                      ║
-║          ├── train/                                                          ║
-║          │   ├── A/        (before images)                                   ║
-║          │   ├── B/        (after images)                                    ║
-║          │   └── label/    (change masks)                                    ║
-║          ├── val/                                                            ║
-║          │   ├── A/                                                          ║
-║          │   ├── B/                                                          ║
-║          │   └── label/                                                      ║
-║          └── test/                                                           ║
-║              ├── A/                                                          ║
-║              ├── B/                                                          ║
-║              └── label/                                                      ║
+║     data/LEVIR-CD/                                                           ║
+║     ├── train/                                                               ║
+║     │   ├── A/        (before images)                                        ║
+║     │   ├── B/        (after images)                                         ║
+║     │   └── label/    (change masks)                                         ║
+║     ├── val/                                                                 ║
+║     │   ├── A/                                                               ║
+║     │   ├── B/                                                               ║
+║     │   └── label/                                                           ║
+║     └── test/                                                                ║
+║         ├── A/                                                               ║
+║         ├── B/                                                               ║
+║         └── label/                                                           ║
 ║                                                                              ║
-║  STEP 5: Run this script again to verify the setup:                          ║
-║          python scripts/download_data.py --verify                            ║
+║  4. Verify setup: python scripts/download_data.py --verify                   ║
+║                                                                              ║
+║  Official website: https://justchenhao.github.io/LEVIR/                      ║
 ║                                                                              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
     """
