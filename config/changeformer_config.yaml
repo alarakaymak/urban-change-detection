@@ -1,0 +1,36 @@
+# ChangeFormer Configuration (Alara)
+# Transformer models need different settings than CNNs
+
+# Data Settings
+data:
+  root_dir: "data/LEVIR-CD"
+  image_size: 256
+  num_workers: 4
+
+# Model Settings
+model:
+  name: "changeformer"  # or "changeformer_lite" for faster experiments
+  embed_dim: 64
+  num_heads: 4
+  depth: 2              # Start with 2, can increase to 4
+  
+# Training Settings - ADJUSTED FOR TRANSFORMER
+training:
+  batch_size: 4         # Smaller batch (transformers use more memory)
+  epochs: 50            # Fewer epochs (transformers converge differently)
+  learning_rate: 0.0001 # Lower LR for transformers
+  weight_decay: 0.01    # Higher weight decay helps
+  warmup_epochs: 5      # Warmup is important for transformers!
+  
+# Loss Function
+loss:
+  name: "bce_dice"      # Combined BCE + Dice works well
+  dice_weight: 0.5
+  bce_weight: 0.5
+
+# Tips for ChangeFormer:
+# 1. Start with changeformer_lite (328K params) to test pipeline
+# 2. Use batch_size=4 or 2 if you get OOM errors
+# 3. 50 epochs should be enough - monitor val loss
+# 4. If training is slow, reduce depth from 2 to 1
+

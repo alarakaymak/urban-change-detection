@@ -161,10 +161,16 @@ def main():
     
     # Create model
     print(f"Creating model: {args.model}")
-    model = get_model(
-        args.model,
-        encoder_name=args.encoder if "unet" in args.model else None
-    )
+    
+    # Different models need different arguments
+    if "unet" in args.model or "siamese" in args.model:
+        model = get_model(args.model, encoder_name=args.encoder)
+    elif "changeformer_lora" in args.model:
+        model = get_model(args.model, pretrained=False, use_lora=True, freeze_backbone=False)
+    elif "changeformer_swin" in args.model:
+        model = get_model(args.model, pretrained=False, freeze_backbone=False)
+    else:
+        model = get_model(args.model)
     
     # Load checkpoint
     print(f"Loading checkpoint: {args.checkpoint}")

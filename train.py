@@ -109,6 +109,10 @@ def train_one_epoch(
         img_b = img_b.to(device)
         target = target.to(device)
         
+        # Ensure target has channel dimension (B, 1, H, W)
+        if target.dim() == 3:
+            target = target.unsqueeze(1)
+        
         # Forward pass
         optimizer.zero_grad()
         pred = model(img_a, img_b)
@@ -159,6 +163,10 @@ def validate(
         img_a = img_a.to(device)
         img_b = img_b.to(device)
         target = target.to(device)
+        
+        # Ensure target has channel dimension (B, 1, H, W)
+        if target.dim() == 3:
+            target = target.unsqueeze(1)
         
         # Forward pass
         pred = model(img_a, img_b)
@@ -238,10 +246,16 @@ def main():
     
     # Create model
     print(f"Creating model: {args.model}")
-    model = get_model(
-        args.model,
-        encoder_name=args.encoder if "unet" in args.model else None
-    )
+    
+    # Different models need different arguments
+    if "unet" in args.model or "siamese" in args.model:
+        model = get_model(args.model, encoder_name=args.encoder)
+    elif "changeformer_lora" in args.model:
+        model = get_model(args.model, pretrained=True, use_lora=True, freeze_backbone=True)
+    elif "changeformer_swin" in args.model:
+        model = get_model(args.model, pretrained=True, freeze_backbone=True)
+    else:
+        model = get_model(args.model)
     model = model.to(device)
     
     # Count parameters

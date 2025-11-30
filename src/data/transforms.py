@@ -39,8 +39,8 @@ def get_train_transforms(image_size: int = 256):
             ),
         ], p=0.5),
         
-        # Noise
-        A.GaussNoise(var_limit=(10.0, 50.0), p=0.2),
+        # Noise (GaussianNoise in newer albumentations)
+        A.GaussianBlur(blur_limit=(3, 5), p=0.2),
         
         # Normalize and convert to tensor
         A.Normalize(

@@ -76,13 +76,17 @@ def get_dataloaders(
             patch_size=image_size
         )
     
+    # Check if using MPS (Apple Silicon) - pin_memory not supported
+    import torch
+    use_pin_memory = torch.cuda.is_available()  # Only for CUDA, not MPS
+    
     # Create dataloaders
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
         shuffle=True,
         num_workers=num_workers,
-        pin_memory=True,
+        pin_memory=use_pin_memory,
         drop_last=True
     )
     
@@ -91,7 +95,7 @@ def get_dataloaders(
         batch_size=batch_size,
         shuffle=False,
         num_workers=num_workers,
-        pin_memory=True
+        pin_memory=use_pin_memory
     )
     
     test_loader = DataLoader(
@@ -99,7 +103,7 @@ def get_dataloaders(
         batch_size=batch_size,
         shuffle=False,
         num_workers=num_workers,
-        pin_memory=True
+        pin_memory=use_pin_memory
     )
     
     return {

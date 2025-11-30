@@ -2,102 +2,19 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
 
 # Distribution / packaging
-.Python
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
 *.egg
 
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
+# Virtual environments
 .env
 .venv
 env/
 venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
 
 # IDE
 .idea/
@@ -110,27 +27,45 @@ venv.bak/
 .DS_Store
 Thumbs.db
 
-# Project specific
+# Jupyter
+.ipynb_checkpoints/
+
+# ============================================
+# PROJECT SPECIFIC - DO NOT PUSH
+# ============================================
+
+# Dataset (too large for git - each person downloads)
 data/LEVIR-CD/
+LEVIR-CD+/
+
+# Training outputs (don't push yet)
 checkpoints/
+checkpoints_v2/
 logs/
+logs_v2/
 results/
 *.pth
 *.pt
 *.ckpt
 
-# Personal model files - each team member works on their own
-# Uncomment your model to exclude it from git:
-src/models/unet_baseline.py      # Maggie's model
-src/models/siamese_unet.py       # Laura's model
-src/models/changeformer.py       # Alara's model
+# Training logs
+training_log.txt
+training_v2_log.txt
+nohup.out
 
 # Large files
 *.zip
 *.tar
 *.tar.gz
-*.rar
 
-# Tensorboard
-events.out.tfevents.*
+# ============================================
+# PERSONAL MODEL FILES - Each person works on their own
+# ============================================
+src/models/unet_baseline.py      # Maggie
+src/models/siamese_unet.py       # Laura  
+src/models/changeformer.py       # Alara
+src/models/changeformer_pretrained.py  # Alara
 
+# Temporary Office files
+.~*
+~$*
