@@ -114,14 +114,14 @@ python scripts/download_data.py --create_sample --num_samples 20
 ### 3. Train a Model
 
 ```bash
-# Train Siamese U-Net (main model)
-python train.py --model siamese_unet --epochs 100 --batch_size 8
+# Train U-Net baseline (Maggie)
+python train.py --model unet_baseline --epochs 50 --batch_size 8
 
-# Train U-Net baseline
-python train.py --model unet_baseline --epochs 100 --batch_size 8
+# Train Siamese U-Net (Laura)
+python train.py --model siamese_unet --epochs 50 --batch_size 8
 
-# Train ChangeFormer (transformer-based)
-python train.py --model changeformer --epochs 100 --batch_size 4
+# Train ChangeFormer with LoRA (Alara) - RECOMMENDED
+python train_v2.py --model changeformer_lora --epochs 50 --batch_size 4
 ```
 
 ### 4. Evaluate
@@ -185,7 +185,7 @@ urban-change-detection/
 - [ ] Implement U-Net++ variant as additional baseline
 
 **Experiments:**
-- [ ] Train baseline model for 100 epochs
+- [ ] Train baseline model for 50 epochs
 - [ ] Hyperparameter tuning (learning rate, batch size)
 - [ ] Ablation: Compare different encoders
 
@@ -206,7 +206,7 @@ urban-change-detection/
 - [ ] Add attention mechanism variant
 
 **Experiments:**
-- [ ] Train Siamese U-Net for 100 epochs
+- [ ] Train Siamese U-Net for 50 epochs
 - [ ] Compare feature comparison methods
 - [ ] Experiment with different loss weights (BCE vs Dice)
 
@@ -225,7 +225,7 @@ urban-change-detection/
 - [ ] Create lightweight variant for faster training
 
 **Experiments:**
-- [ ] Train ChangeFormer for 100 epochs
+- [ ] Train ChangeFormer for 50 epochs
 - [ ] Compare with CNN-based models
 - [ ] Analyze transformer attention patterns
 
@@ -293,7 +293,7 @@ tensorboard --logdir logs/
 ```bash
 # Quick test with sample data
 python scripts/download_data.py --create_sample --num_samples 5
-python train.py --model siamese_unet --epochs 2 --batch_size 2
+python train.py --model unet_baseline --epochs 2 --batch_size 2
 ```
 
 ### GPU Memory Tips
