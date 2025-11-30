@@ -65,13 +65,17 @@ Cities change constantly through construction, demolition, and land-use modifica
 | Property | Value |
 |----------|-------|
 | Resolution | 1024×1024 pixels (256×256 patches) |
-| Image Pairs | 637 |
+| Total Image Pairs | 637 |
+| Train | 445 pairs |
+| Validation | 64 pairs |
+| Test | 128 pairs |
 | Annotated Changes | 21,000+ building changes |
 | Format | RGB images + Binary masks |
 
-**Links:**
-- 📥 [Dataset Download](https://justchenhao.github.io/LEVIR/)
-- 📚 [Segmentation Models Reference](https://github.com/qubvel/segmentation_models)
+**Download Links:**
+- 📥 [Google Drive - Official](https://drive.google.com/drive/folders/1dLuzldMRmbBNKPpUkX8Z53hi6NHLrWim)
+- 📥 [Official Website](https://justchenhao.github.io/LEVIR/)
+- 📚 [Segmentation Models Reference](https://github.com/qubvel/segmentation_models.pytorch)
 
 **Ground Truth:** Binary masks showing where new structures appeared (white) or old ones were removed (white). Black = no change.
 
@@ -83,7 +87,7 @@ Cities change constantly through construction, demolition, and land-use modifica
 
 ```bash
 # Clone the repository
-git clone https://github.com/[your-repo]/urban-change-detection.git
+git clone https://github.com/alarakaymak/urban-change-detection.git
 cd urban-change-detection
 
 # Create virtual environment
