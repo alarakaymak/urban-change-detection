@@ -120,7 +120,7 @@ python train.py --model unet_baseline --epochs 50 --batch_size 8
 # Train Siamese U-Net (Laura)
 python train.py --model siamese_unet --epochs 50 --batch_size 8
 
-# Train ChangeFormer with LoRA (Alara) - RECOMMENDED
+# Train ChangeFormer with LoRA (Alara)
 python train_v2.py --model changeformer_lora --epochs 50 --batch_size 4
 ```
 
@@ -195,7 +195,7 @@ urban-change-detection/
 
 ---
 
-### 🟩 Laura Li - Siamese U-Net (Main Model)
+### 🟩 Laura Li - Siamese U-Net
 
 **Technical Work:**
 - [ ] Implement `siamese_unet.py` - Shared encoder architecture
@@ -217,7 +217,7 @@ urban-change-detection/
 
 ---
 
-### 🟨 Alara Kaymak - ChangeFormer (Transformer)
+### 🟨 Alara Kaymak - ChangeFormer
 
 **Technical Work:**
 - [ ] Implement `changeformer.py` - Transformer-based detection
@@ -251,9 +251,9 @@ urban-change-detection/
 ## 📈 Expected Outcomes
 
 1. **Trained Models:**
-   - U-Net Baseline
-   - Siamese U-Net (main)
-   - ChangeFormer (stretch goal)
+   - U-Net Baseline (Maggie)
+   - Siamese U-Net (Laura)
+   - ChangeFormer (Alara)
 
 2. **Quantified Performance:**
    - IoU comparison across models
