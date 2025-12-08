@@ -34,3 +34,4 @@ loss:
 # 3. 50 epochs should be enough - monitor val loss
 # 4. If training is slow, reduce depth from 2 to 1
 
+
